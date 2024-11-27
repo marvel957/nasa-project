@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const db_URI = "mongodb://127.0.0.1:27017/nasa";
+const db_URI = process.env.MONGO_URL;
+// const db_URI = "mongodb://127.0.0.1:27017/nasa";
 
 mongoose.connection.once("open", () => {
   console.log("connection successful");
