@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test --prefix server  && npm run test --prfefix client",
+    "test": "concurrently \"npm run test-server\"  \"npm run test-client\"",
+    "test-client": "npm run test --prefix client",
+    "test-server": "npm run test --prefix server",
     "install-server": "npm install --prefix server",
     "install-client": "npm install --prefix client",
     "install": "concurrently \"npm run install-server\"  \"npm run install-client\"",
     "client": "npm start --prefix client",
-    "server": "npm run watch --prefix server",
+    "server": "npm start --prefix server",
     "watch": "concurrently \"npm run server\"  \"npm run client\"",
     "deploy": "concurrently \"npm run build --prefix client\"  \"npm start --prefix server\"",
     "deploy-cluster": "concurrently \"npm run build --prefix client\"  \"npm run cluster --prefix server\""

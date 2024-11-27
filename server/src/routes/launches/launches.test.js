@@ -3,6 +3,8 @@ const app = require("../../app");
 const { connectMongo, disconnectMongo } = require("../../services/mongo.js");
 const { loadPlanetsData } = require("../../models/planets.model.js");
 
+console.log("restarted the file");
+
 describe("Test launches api", () => {
   beforeAll(async () => {
     await connectMongo();
@@ -11,6 +13,7 @@ describe("Test launches api", () => {
   afterAll(async () => {
     await disconnectMongo();
   });
+  console.log("restarted the test");
 
   describe("Test GET /launches", () => {
     test("It should respond with 200 success", async () => {
